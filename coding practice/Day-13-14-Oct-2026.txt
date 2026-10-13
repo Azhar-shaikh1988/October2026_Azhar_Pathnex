@@ -1,0 +1,20 @@
+- name: Install and Start Apache
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install apache
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start apache
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+
+🔹 Terraform — EC2 Instance (t3.medium)
+provider "aws" {
+  region = "us-east-1"
+}
